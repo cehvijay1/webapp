@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DevOps Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+        }
+        .tabs {
+            display: flex;
+        }
+        .tab {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            cursor: pointer;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        h2 {
+            color: #333;
+        }
+        form {
+            margin-top: 10px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        p {
+            color: #333;
+        }
+    </style>
+    <script>
+        function switchTab(tabName) {
+            document.getElementById('active_tab').value = tabName;
+            var tabContents = document.getElementsByClassName('tab-content');
+            for (var i = 0; i < tabContents.length; i++) {
+                tabContents[i].style.display = 'none';
+            }
+            document.getElementById(tabName).style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>DevOps Dashboard by Vijay Lathwal</h1>
+
+        <div class="tabs">
+            <div class="tab" onclick="switchTab('users')">Users</div>
+            <div class="tab" onclick="switchTab('packages')">Packages</div>
+            <div class="tab" onclick="switchTab('docker')">Docker</div>
+        </div>
+
+        <!-- Users Tab Content -->
+        <div class="tab-content" id="users">
+            <h2>Create User</h2>
+            <form method="POST">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username">
+                <br>
+                <label for="password">Password:</label>
+                <input type="text" id="password" name="password">
+                <br>
+                <input type="submit" value="Create User">
+            </form>
+            <p>{{ user_message }}</p>
+            
+            <!-- Add Docker Container for User form here -->
+            <h2>Create Docker Container for User</h2>
+            <form method="POST">
+                <label for="user_container_name">Container Name:</label>
+                <input type="text" id="user_container_name" name="user_container_name">
+                <br>
+                <label for="user_docker_image">Docker Image:</label>
+                <input type="text" id="user_docker_image" name="user_docker_image">
+                <br>
+                <input type="submit" name="create_user_docker_container" value="Create Docker Container for User">
+            </form>
+            <p>{{ docker_message }}</p>
+        </div>
+
+        <!-- Packages Tab Content -->
+        <div class="tab-content" id="packages">
+            <h2>Install Package</h2>
+            <form method="POST">
+                <label for="package_install">Package Name:</label>
+                <input type="text" id="package_install" name="package_install">
+                <br>
+                <input type="submit" value="Install Package">
+            </form>
+            <p>{{ package_install_message }}</p>
+
+            <h2>Remove Package</h2>
+            <form method="POST">
+                <label for="package_remove">Package Name:</label>
+                <input type="text" id="package_remove" name="package_remove">
+                <br>
+                <input type="submit" value="Remove Package">
+            </form>
+            <p>{{ package_remove_message }}</p>
+
+            <!-- Add Docker Container for Package form here -->
+            <h2>Create Docker Container for Package</h2>
+            <form method="POST">
+                <label for="package_container_name">Container Name:</label>
+                <input type="text" id="package_container_name" name="package_container_name">
+                <br>
+                <label for="package_docker_image">Docker Image:</label>
+                <input type="text" id="package_docker_image" name="package_docker_image">
+                <br>
+                <input type="submit" name="create_package_docker_container" value="Create Docker Container for Package">
+            </form>
+            <p>{{ docker_message }}</p>
+        </div>
+
+        <!-- Docker Tab Content -->
+        <div class="tab-content" id="docker">
+            <!-- Add Docker-related content and forms here -->
+
+            <h2>Create Docker Container</h2>
+            <form method="POST">
+                <label for="container_name">Container Name:</label>
+                <input type="text" id="container_name" name="container_name">
+                <br>
+                <label for="docker_image">Docker Image:</label>
+                <input type="text" id="docker_image" name="docker_image">
+                <br>
+                <input type="submit" name="create_docker_container" value="Create Docker Container">
+            </form>
+            <p>{{ docker_message }}</p>
+        </div>
+
+        <input type="hidden" id="active_tab" name="active_tab" value="{{ active_tab }}">
+    </div>
+</body>
+</html>

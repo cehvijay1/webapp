@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Users Page</title>
+</head>
+<body>
+    <h1>Users Page</h1>
+    
+    <!-- Add User-related content and forms here -->
+
+    <h2>Create Docker Container for User</h2>
+    <form method="POST">
+        <label for="user_container_name">Container Name:</label>
+        <input type="text" id="user_container_name" name="user_container_name">
+        <br>
+        <label for="user_docker_image">Docker Image:</label>
+        <input type="text" id="user_docker_image" name="user_docker_image">
+        <br>
+        <input type="submit" name="create_user_docker_container" value="Create Docker Container for User">
+    </form>
+    <p>{{ user_message }}</p>
+</body>
+</html>

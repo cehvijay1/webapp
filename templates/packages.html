@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Packages Page</title>
+</head>
+<body>
+    <h1>Packages Page</h1>
+    
+    <!-- Add Package-related content and forms here -->
+
+    <h2>Create Docker Container for Package</h2>
+    <form method="POST">
+        <label for="package_container_name">Container Name:</label>
+        <input type="text" id="package_container_name" name="package_container_name">
+        <br>
+        <label for="package_docker_image">Docker Image:</label>
+        <input type="text" id="package_docker_image" name="package_docker_image">
+        <br>
+        <input type="submit" name="create_package_docker_container" value="Create Docker Container for Package">
+    </form>
+    <p>{{ package_install_message }}</p>
+    <p>{{ package_remove_message }}</p>
+</body>
+</html>

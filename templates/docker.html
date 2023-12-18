@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Docker Page</title>
+</head>
+<body>
+    <h1>Docker Page</h1>
+    
+    <!-- Add Docker-related content and forms here -->
+
+    <h2>Create Docker Container for Docker</h2>
+    <form method="POST">
+        <label for="docker_container_name">Container Name:</label>
+        <input type="text" id="docker_container_name" name="docker_container_name">
+        <br>
+        <label for="docker_docker_image">Docker Image:</label>
+        <input type="text" id="docker_docker_image" name="docker_docker_image">
+        <br>
+        <input type="submit" name="create_docker_docker_container" value="Create Docker Container for Docker">
+    </form>
+    <p>{{ docker_docker_message }}</p>
+</body>
+</html>
